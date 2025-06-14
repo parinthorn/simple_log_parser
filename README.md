@@ -2,7 +2,7 @@
 
 ## Description
 
-The primary goal of this program is for process job's logs that have start time and stop time for notify that the time usage may greater than two layers
+The primary goal of this program is to track job start and end with stateful implementation. If the time processing the job is greater than give threshold of two levels, it will either logs as warning or error level.
 
 
 ## How It Works
@@ -29,3 +29,8 @@ log-notifier/
 └── README.md               # This file
 ```
 
+## Setup Development
+
+1. Create Python venv: `python -m venv venv`
+2. Install `direnv`
+3. Run `direnv allow` to enable virtual env using `.envrc` and `.local.env` if required
