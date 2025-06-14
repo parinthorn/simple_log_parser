@@ -146,7 +146,7 @@ class StandardLogProcessor(BaseLogProcessor):
             )
         else:
             process_data["process_time"] = None
-            logger.debug(
+            logger.error(
                 "Could not calculate process time for PID %s (incomplete process)",
                 pid,
             )
