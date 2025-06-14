@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 # Time in seconds. Should be env
 TIME_WARN_SECOND = 5 * 60
-TIME_ERROR_SECOND = 15 * 60
+TIME_ERROR_SECOND = 10 * 60
 
 
 class BaseLogProcessor(ABC):
