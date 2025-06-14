@@ -34,3 +34,6 @@ log-notifier/
 1. Create Python venv: `python -m venv venv`
 2. Install `direnv`
 3. Run `direnv allow` to enable virtual env using `.envrc` and `.local.env` if required
+4. Verify if virtual env is correctly enabled: Run `pip -V`. Output should have path of the project: `/path/to/project/simple_log_parser/venv/lib/pythonxx/site-packages/pip`
+5. Install pre commit: `pip install pre-commit`
+6. Enable pre commit hook: `pre-commit install`. This will automatically run the unit test on test/test_*.py before commit.
