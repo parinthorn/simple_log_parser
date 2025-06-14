@@ -1,0 +1,12 @@
+# .pre-commit-config.yaml
+repos:
+-   repo: local
+    hooks:
+    -   id: unittest
+        name: Run unit tests
+        entry: python -m unittest discover -s test
+        language: system
+        pass_filenames: false
+        always_run: true
+        types: [python]
+        stages: [pre-commit]
