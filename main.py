@@ -77,14 +77,15 @@ def read_log_file(file_path):
 
 def parse_job_description(job_description):
     """
-    Parse the job_description into crontype, action_type, and action_id.
+    Parse the job_description string into component parts.
 
     Args:
-        job_description (str): The metadata string to parse
+        job_description (str): The job description string in format "crontype action_type action_id"
 
     Returns:
-        tuple: (crontype, action_type, action_id)
+        tuple: A tuple containing (crontype, action_type, action_id)
     """
+
     regex_pattern = r"(.*?) (.*?) (.*)"
     match = re.match(regex_pattern, job_description)
 
@@ -97,6 +98,15 @@ def parse_job_description(job_description):
 
 
 def main():
+    """
+    Main function to process log files.
+
+    Reads the log file specified as a command line argument,
+    parses each entry, and processes it using StandardLogProcessor.
+
+    Command line usage:
+        python process_job_log.py <log_file>
+    """
     if len(sys.argv) != 2:
         logger.error("Usage: python process_job_log.py <log_file>")
         sys.exit(1)
