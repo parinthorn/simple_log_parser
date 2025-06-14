@@ -4,6 +4,10 @@
 
 The primary goal of this program is to track job start and end with stateful implementation. If the time processing the job is greater than give threshold of two levels, it will either logs as warning or error level.
 
+## Usage
+
+Run `python main.py logs.log`. It will output the warning and error logs.
+
 
 ## How It Works
 
