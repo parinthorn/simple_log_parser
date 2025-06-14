@@ -27,7 +27,10 @@ class BaseLogProcessor(ABC):
         Process a single log entry.
 
         Args:
-            job_description (dict): Dictionary containing log entry metadata
+            timestamp: The timestamp of the log entry
+            job_description (dict): Dictionary containing job metadata
+            entry_type (str): The type of entry (START or END)
+            pid: The process ID
         """
         pass
 
@@ -47,13 +50,13 @@ class StandardLogProcessor(BaseLogProcessor):
         Process a single log entry and update the internal log dictionary.
 
         Args:
+            timestamp: The timestamp of the log entry
             job_description (dict): Dictionary containing the following keys:
-                - timestamp: The second of the time (Can be converted into unix timestamp)
                 - crontype: The type of cron job
                 - action_type: The type of action
-                - action_id: The identifier of the process (renamed from 'id')
-                - entry_type: The type of entry (START or END)
-                - pid: The process ID
+                - action_id: The identifier of the process
+            entry_type (str): The type of entry (START or END)
+            pid: The process ID
         """
         # Extract fields from the job_description dictionary
         crontype = job_description.get("crontype")
@@ -95,7 +98,8 @@ class StandardLogProcessor(BaseLogProcessor):
         """
         Post-process a single pid entry:
         1. Calculate process time by subtracting end time from start time
-        2. Delete pid from the dictionary to save memory
+        2. Log warnings or errors if process time exceeds thresholds
+        3. Delete pid from the dictionary to save memory
 
         Args:
             pid (str): The process ID to post-process
