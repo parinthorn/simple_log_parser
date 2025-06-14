@@ -17,7 +17,7 @@ Run `python main.py logs.log`. It will output the warning and error logs.
 ## Code Structure
 
 ```
-log-notifier/
+simple_log_parser/
 │
 ├── log_notifier/
 │   └── core.py             # Core processing logic (BaseLogProcessor, StandardLogProcessor)
